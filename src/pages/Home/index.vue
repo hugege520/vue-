@@ -36,7 +36,11 @@
   import Brand from './Brand/index'
   export default {
     name: 'Home',
-
+     mounted () {
+      // 触发vuex的异步action调用, 从mock接口请求数据到state中
+      this.$store.dispatch('getBanners')
+      this.$store.dispatch('getFloors')
+    },
     components: { // 局部注册, 只能在当前组件中使用
       TodyRecommend,
       ListContainer,

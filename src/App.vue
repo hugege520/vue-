@@ -13,6 +13,9 @@ export default {
   components:{
     Header,
     Footer
+  },
+  mounted(){
+     this.$store.dispatch("getBaseCategoryList");
   }
 }
 </script>

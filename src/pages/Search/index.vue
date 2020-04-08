@@ -1,9 +1,8 @@
 <template>
 <div>
-
+  <TypeNav />
   <h2>Search</h2>
-  <p>{{keyword1}}</p>
-   <p>{{keyword2}}</p>
+  
 </div>
   
  
