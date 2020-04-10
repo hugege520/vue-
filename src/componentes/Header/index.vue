@@ -44,15 +44,35 @@
 </template>
 
 <script>
+import router from '../../router';
 export default {
   data(){
     return {
       msg:''
     }
   },
+  mounted(){
+    this.$bus.$on('removeKeyword',()=>{
+      this.msg = '';
+    })
+  },
   methods:{
     toSearch(){
-      this.$router.push({path:'search',query:{keyword:this.msg}})
+      const {path, query} = this.$route
+      if(this.msg){
+        if(path.indexOf('/search')===0){
+        
+           this.$router.push({name:'search',query,params:{keyword:this.msg}})
+        }else{
+           this.$router.push({name:'search',params:{keyword:this.msg}})
+        }
+      }else{
+        if(path.indexOf('/search')===0){
+           this.$router.push({name:'search',query})
+        }else{
+           this.$router.push({name:'search'})
+        }
+      }
     }
   }
 };

@@ -95,7 +95,15 @@ export default {
         }else if(category3id){
           query.category3Id = category3id
         }
-        this.$router.push({path:'/search',query})
+
+        
+        const path  = this.$route.path;
+        const params = this.$route.params
+        if(path.indexOf('/search') ===0){
+             this.$router.push({name:'search',params,query})
+        }else{
+          this.$router.push({path:'/search',query})
+        }
       }
     },
     hideFirst(){

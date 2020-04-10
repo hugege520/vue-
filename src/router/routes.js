@@ -1,5 +1,5 @@
 import Home from '@/pages/Home';
-import Search from '@/pages/Search'
+import Search from '@/pages/search'
 import Login from '@/pages/Login'
 import Rejister from '@/pages/Rejister'
 
@@ -13,8 +13,6 @@ export default [
     path:'/search/:keyword?',
     component:Search,
     props:(route)=>({keyword1:route.params.keyword,keyword2:route.query.keyword})
-   
-    
   },
   {
     path:'/rejister',
